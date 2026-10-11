@@ -1,0 +1,35 @@
+[Unit]
+Description=KT Strategy D1 Forward Shadow
+Documentation=file:/opt/kt-d1-shadow/STRATEGY_D1_FORWARD_SHADOW_RUNBOOK.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=kulitrader
+Group=kulitrader
+WorkingDirectory=/opt/kt-d1-shadow
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 /opt/kt-d1-shadow/strategy_d1_shadow.py --state /var/lib/kt-d1-shadow/state.json --history-days 370 --quiet-unchanged
+UMask=0077
+NoNewPrivileges=true
+PrivateDevices=true
+PrivateTmp=true
+ProtectClock=true
+ProtectControlGroups=true
+ProtectHome=true
+ProtectHostname=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectSystem=strict
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+LockPersonality=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+InaccessiblePaths=-/opt/kt-auto-trading-bot
+ReadWritePaths=/var/lib/kt-d1-shadow

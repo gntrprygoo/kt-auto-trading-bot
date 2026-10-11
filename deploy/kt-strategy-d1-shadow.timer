@@ -1,0 +1,13 @@
+[Unit]
+Description=Poll KT Strategy D1 Forward Shadow
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=15min
+AccuracySec=30s
+RandomizedDelaySec=30s
+Persistent=true
+Unit=kt-strategy-d1-shadow.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,19 @@
+[Unit]
+Description=KT Auto Trading Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=kulitrader
+WorkingDirectory=/opt/kt-auto-trading-bot
+Environment=KT_BOT_CONFIG=/opt/kt-auto-trading-bot/config.json
+EnvironmentFile=-/etc/kt-auto-trading-bot/hybrid-ai.env
+ExecStart=/opt/kt-auto-trading-bot/.venv/bin/python /opt/kt-auto-trading-bot/v3_swing_bot_fixed.py --run-interval 15 --max-workers 4
+Restart=always
+RestartSec=15
+KillSignal=SIGTERM
+TimeoutStopSec=60
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,131 @@
+{
+  "product": {
+    "bot_tag": "KT-V7.4-SWING"
+  },
+  "telegram": {
+    "bot_token": "",
+    "chat_id": "",
+    "admin_chat_ids": [],
+    "default_trial_days": 7
+  },
+  "binance": {
+    "base_url": "https://fapi.binance.com",
+    "api_key": "",
+    "api_secret": ""
+  },
+  "risk": {
+    "fixed_notional_usdt": 50,
+    "risk_per_trade_usdt": 0.5,
+    "leverage": 3,
+    "max_concurrent_trades": 11,
+    "max_same_pair_open": 1,
+    "daily_loss_limit_r": -6
+  },
+  "universe": {
+    "enable_dynamic_pairs": true,
+    "min_pair_volume_usdt": 15000000,
+    "max_dynamic_pairs": 30
+  },
+  "strategy_quality": {
+    "enable": true,
+    "market_min_agreement": 4,
+    "local_min_score": 2,
+    "market_cache_sec": 300,
+    "short_min_range_position": 0.4,
+    "max_sl_pct": 0.03
+  },
+  "strategy_a": {
+    "enable_volume_shadow": false,
+    "research_status": "volume_shadow_retired_2026_08_04"
+  },
+  "strategy_b": {
+    "version": 2,
+    "enable_live": false,
+    "research_status": "paused_no_validated_edge"
+  },
+  "smart_money_c": {
+    "version": 6,
+    "enable_shadow": false,
+    "enable_daily_report": false,
+    "research_status": "forward_shadow_validation"
+  },
+  "hybrid_ai": {
+    "enabled": true,
+    "mode": "AI_SHADOW",
+    "preserve_baseline_in_shadow": true,
+    "model": "gpt-5.6-luna",
+    "reasoning_effort": "low",
+    "api_key_env": "OPENAI_API_KEY",
+    "request_timeout_sec": 30,
+    "max_parallel_calls": 2,
+    "min_confidence": 0.72,
+    "min_setup_quality": 65,
+    "min_rr": 1.5,
+    "max_stop_pct": 0.03,
+    "max_account_risk_pct": 0.0025,
+    "max_notional_usdt": 10,
+    "max_open_positions": 1,
+    "max_daily_loss_r": -1,
+    "max_candidate_age_sec": 1200,
+    "approval_ttl_sec": 300,
+    "max_price_deviation_pct": 0.003,
+    "allow_live": false
+  },
+  "ai_market_live": {
+    "enabled": false,
+    "mode": "RESEARCH_SHADOW_ONLY",
+    "research_status": "rejected_historical_shadow_observation_only",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "low",
+    "api_key_env": "OPENAI_API_KEY",
+    "prompt_id": "P6_RANGE_ABSORPTION_SETUP",
+    "scan_interval_sec": 3600,
+    "setup_monitor_interval_sec": 300,
+    "failure_retry_sec": 900,
+    "request_timeout_sec": 45,
+    "max_output_tokens": 1800,
+    "candle_limit": 800,
+    "min_closed_bars": 700,
+    "symbols": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "SOLUSDT",
+      "ADAUSDT",
+      "DOGEUSDT",
+      "XRPUSDT"
+    ],
+    "require_authenticated_binance": true,
+    "notify_admin_on_setup": true,
+    "notify_admin_on_lifecycle": true
+  },
+  "safety": {
+    "enable_time_filter": false,
+    "enable_startup_audit": true,
+    "enable_orphan_order_audit": false,
+    "profit_protection_version": 2,
+    "enable_profit_sl_plus": true,
+    "profit_sl_plus_trigger_pct": 0.015,
+    "profit_sl_plus_lock_pct": 0.01,
+    "audit_alert_cooldown_sec": 21600,
+    "journal_backup_min_interval_sec": 21600,
+    "sync_summary_log_interval_sec": 1800,
+    "terminal_cycle_log_enabled": false
+  },
+  "logging": {
+    "quiet_mode": true,
+    "scan_done_interval_sec": 3600
+  },
+  "paths": {
+    "journal_path": "data/journal_v3.json",
+    "log_path": "data/scan_v3.log",
+    "log_max_bytes": 10485760,
+    "log_rotate_keep": 2,
+    "report_state_path": "data/daily_report_state_v3.json",
+    "heartbeat_path": "data/heartbeat_v3.txt",
+    "user_registry_path": "data/user_registry_v1.json",
+    "breakout_state_path": "data/breakout_state_v3.json",
+    "shadow_trades_path": "data/shadow_trades_v3.json",
+    "d1_shadow_state_path": "data/d1_forward_shadow_state.json",
+    "journal_backup_dir": "data/backups"
+  }
+}
